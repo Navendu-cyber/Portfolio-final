@@ -94,16 +94,16 @@
                         <h1 class="text-huge-title">
                             I am Navendu, <br>
                             a flutter developer <br>
-                            & i have knowledge in Robotics  
+                            & Mini Roboticist 
                              
                         </h1>
                     </div>
 
                     <ul class="intro-social">
-                        <li><a href="#0">Behance</a></li>
-                        <li><a href="#0">Twitter</a></li>
-                        <li><a href="#0">Dribbble</a></li>
-                        <li><a href="#0">Instagram</a></li>
+                       
+                        <li><a href="https://x.com/Navendu2005" target="_blank">Twitter</a></li>
+                        
+                        <li><a href="https://www.instagram.com/navend.u?igsh=bG1scHRhcXBkOTZ6" target="_blank">Instagram</a></li>
                     </ul>
 
                 </div> <!-- end intro content -->
@@ -317,8 +317,7 @@
                             <li class="folio-list__item column" data-animate-el>
                                 <a class="folio-list__item-link" href="#modal-04">
                                     <div class="folio-list__item-pic">
-                                        <img src="\images\portfolio\fIZZ.png"
-                                              alt="">
+                                        <img src="images\portfolio\fIZZ.png"alt="">
                                     </div>
                                     
                                     <div class="folio-list__item-text">
@@ -345,7 +344,6 @@
                     -------------------------------------------- -->
                     <div id="modal-01" hidden>
                         <div class="modal-popup">
-                            <img src="C:\Users\Navendu\OneDrive\Desktop\Portfolio New\luther-1.0.0\images\portfolio\RC.jpg" alt="">
                 
                             <div class="modal-popup__desc">
                                 <h5>Bluetooth Rc car</h5>
@@ -358,13 +356,11 @@
                                 </ul>
                             </div>
                 
-                            <a href="https://www.behance.net/" class="modal-popup__details">Project link</a>
                         </div>
                     </div> <!-- end modal -->
 
                     <div id="modal-02" hidden>
                         <div class="modal-popup">
-                            <img src="C:\Users\Navendu\OneDrive\Desktop\Portfolio New\luther-1.0.0\images\portfolio\HM.jpg" alt="">
                 
                             <div class="modal-popup__desc">
                                 <h5>Home Automation</h5>
@@ -374,13 +370,11 @@
                                 </ul>
                             </div>
                 
-                            <a href="https://www.behance.net/" class="modal-popup__details">Project link</a>
                         </div>
                     </div> <!-- end modal -->
 
                     <div id="modal-03" hidden>
                         <div class="modal-popup">
-                            <img src="C:\Users\Navendu\OneDrive\Desktop\Portfolio New\luther-1.0.0\images\portfolio\HRLEY.png" alt="">
                 
                             <div class="modal-popup__desc">
                                 <h5>Harley Davidson</h5>
@@ -390,13 +384,12 @@
                                 </ul>
                             </div>
                 
-                            <a href="https://www.behance.net/" class="modal-popup__details">Project link</a>
                         </div>
                     </div> <!-- end modal -->
 
                     <div id="modal-04" hidden>
                         <div class="modal-popup">
-                            <img src="C:\Users\Navendu\OneDrive\Desktop\Portfolio New\luther-1.0.0\images\portfolio\fIZZ.png" alt="">
+                            
                 
                             <div class="modal-popup__desc">
                                 <h5>Appy Fizz</h5>
@@ -406,7 +399,6 @@
                                 </ul>
                             </div>
                 
-                            <a href="https://www.behance.net/" class="modal-popup__details">Project link</a>
                         </div>
                     </div> <!-- end modal -->
 
@@ -472,17 +464,40 @@
             </section> <!-- end contact -->
 
             <div class="contact-container">
-                <form action="https://api.web3forms.com/submit" method="POST" class="contact-left"> 
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-left" onsubmit="clearForm(event)">
                     <div class="contact-left-title">
                         <h3>Say Hello to Me</h3>
                     </div>
                     <input type="hidden" name="access_key" value="227e2909-2bd7-4cf3-bdca-72aab7a74c2c">
-                    <input type="text" name="name" placeholder="Your Name.." class="contact-inputs" required>
+                    <input type="text" name="name" placeholder="Your Name.." class="contact-inputs" required pattern="[A-Za-z\s]+">
                     <input type="email" name="Email" placeholder="Your Email id" class="contact-inputs" required>
-                    <textarea name="Your Thoughts" placeholder="Your Thoughts " required ></textarea>
+                    <textarea name="Your Thoughts" placeholder="Your Thoughts " required></textarea>
                     <button type="submit">Submit</button>
-
                 </form>
+                
+                <script>
+                  function clearForm(event) {
+                      event.preventDefault(); // Prevent the form from refreshing the page
+                      const form = event.target;
+                      
+                      // Proceed with the form submission to Web3Forms
+                      fetch(form.action, {
+                          method: form.method,
+                          body: new FormData(form)
+                      }).then(response => {
+                          if (response.ok) {
+                              form.reset(); // Clear the form fields if submission is successful
+                              alert("Form submitted successfully!");
+                          } else {
+                              alert("There was an error submitting the form.");
+                          }
+                      }).catch(error => {
+                          console.error("Error:", error);
+                          alert("There was an error submitting the form.");
+                      });
+                  }
+                </script>
+                
                 <div class="contact-right">
                     
                 </div>
